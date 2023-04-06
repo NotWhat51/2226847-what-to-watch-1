@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client';
 import App from './components/app/app';
 
 const PromoFilm = {
-  nameFilm: 'A Clockworkk Orange',
-  genreFilm: 'fantasy',
-  releaseYearFilm: 1971
+  nameFilm: 'The Grand Budapest Hotel',
+  genreFilm: 'Drama',
+  releaseYearFilm: 2014
 };
 
 const root = ReactDOM.createRoot(
@@ -14,6 +14,6 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <App nameFilm={PromoFilm.nameFilm} genreFilm={PromoFilm.genreFilm} releeseYearFilm={PromoFilm.releaseYearFilm} />
+    <App nameFilm={PromoFilm.nameFilm} genreFilm={PromoFilm.genreFilm} releaseYearFilm={PromoFilm.releaseYearFilm} />
   </React.StrictMode>,
 );
