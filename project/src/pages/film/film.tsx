@@ -1,10 +1,12 @@
 import {Link, Navigate, useParams} from 'react-router-dom';
-import { FilmList } from '../../components';
 import FilmType from '../../types/film-type';
 import { AppRoute } from '../../route';
+import ReviewType from '../../types/review-type';
+import { RelatedFilms, Tabs } from '../../components';
 
 type FilmPageProps = {
   films: FilmType[];
+  reviews: ReviewType[];
 };
 
 const getRatingLevel = (ratingCount: number): string => {
@@ -86,6 +88,7 @@ const Film = (props: FilmPageProps): JSX.Element => {
                   </button>
                   <Link to={`/films/${film.id}/review`} className="btn film-card__button">Add review</Link>
                 </div>
+                <Tabs film={film} reviews={props.reviews}/>
               </div>
             </div>
           </div>
@@ -135,7 +138,7 @@ const Film = (props: FilmPageProps): JSX.Element => {
             <h2 className="catalog__title">More like this</h2>
 
             <div className="catalog__films-list">
-              <FilmList films={props.films} />
+              <RelatedFilms films={props.films} currentFilm={film}/>
             </div>
           </section>
 
