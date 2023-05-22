@@ -3,16 +3,18 @@ import { AppRoute, AuthStatus } from '../../route';
 import { PrivateRoute } from '../private-route/private-route';
 import { AddReview, Film, MainPage, MyList, NotFound, Player, SignIn } from '../../pages';
 import FilmType from '../../types/film-type';
+import ReviewType from '../../types/review-type';
 
 type AppProps = {
   films: FilmType[];
+  reviews: ReviewType[];
 };
 
 export const App = (props: AppProps): JSX.Element => (
   <BrowserRouter>
     <Routes>
       <Route path={AppRoute.AddReview} element={<AddReview films={props.films}/>} />
-      <Route path={AppRoute.Film} element={<Film films={props.films}/>} />
+      <Route path={AppRoute.Film} element={<Film films={props.films} reviews={props.reviews}/>} />
       <Route path={AppRoute.MainPage} element={<MainPage films={props.films}/>} />
       <Route path={AppRoute.MyList} element={
         <PrivateRoute authStatus={AuthStatus.NoAuth}>
