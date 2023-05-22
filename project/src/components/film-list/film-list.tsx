@@ -7,9 +7,13 @@ type FilmListProps = {
 };
 
 export const FilmList = (props: FilmListProps): JSX.Element => {
-  const [, setActiveFilmCard] = useState<number>(NaN);
+  const [activeFilmCard, setActiveFilmCard] = useState<number>(NaN);
   return (
     <>
-      {props.films.map((film)=>(<FilmCard key={film.id} film={film} setActiveFilmCard={setActiveFilmCard}/>))}
+      {
+        props.films.map((film) => (
+          <FilmCard key={film.id} film={film} setActiveFilmCard={setActiveFilmCard} isActive={activeFilmCard === film.id}/>
+        ))
+      }
     </>);
 };
