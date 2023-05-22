@@ -4,7 +4,7 @@ import {AppRoute} from '../../route';
 import FilmType from '../../types/film-type';
 
 type AddReviewProps = {
-  films: FilmType[]
+  films: FilmType[];
 };
 
 const AddReview = (props: AddReviewProps): JSX.Element => {

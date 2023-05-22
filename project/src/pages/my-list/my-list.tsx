@@ -1,5 +1,5 @@
-import { FilmList } from "../../components";
-import FilmType from "../../types/film-type";
+import { FilmList } from '../../components';
+import FilmType from '../../types/film-type';
 
 type MyListProps = {
   films: FilmType[];
