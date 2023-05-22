@@ -1,10 +1,10 @@
-import { FilmCard } from '../../components';
+import { FilmList } from "../../components";
+import FilmType from "../../types/film-type";
+import {Link} from 'react-router-dom';
 
 type MainPageProps = {
-    nameFilm: string;
-    genreFilm: string;
-    releaseYearFilm: number;
-}
+    films: FilmType[];
+};
 
 const MainPage = (props: MainPageProps): JSX.Element => (
   <body>
@@ -75,10 +75,10 @@ const MainPage = (props: MainPageProps): JSX.Element => (
           </div>
 
           <div className="film-card__desc">
-            <h2 className="film-card__title">{props.nameFilm}</h2>
+            <h2 className="film-card__title">{props.films[0].name}</h2>
             <p className="film-card__meta">
-              <span className="film-card__genre">{props.genreFilm}</span>
-              <span className="film-card__year">{props.releaseYearFilm}</span>
+              <span className="film-card__genre">{props.films[0].genre}</span>
+              <span className="film-card__year">{props.films[0].released}</span>
             </p>
 
             <div className="film-card__buttons">
@@ -139,26 +139,7 @@ const MainPage = (props: MainPageProps): JSX.Element => (
         </ul>
 
         <div className="catalog__films-list">
-          <FilmCard imgSrc="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" imgAlt="Fantastic Beasts: The Crimes of Grindelwald" filmName="Fantastic Beasts: The Crimes of Grindelwald" />
-          <FilmCard imgSrc="img/bohemian-rhapsody.jpg" imgAlt="Bohemian Rhapsody" filmName="Bohemian Rhapsody"/>
-          <FilmCard imgSrc="img/macbeth.jpg" imgAlt="Macbeth" filmName="Macbeth" />
-          <FilmCard imgSrc="img/aviator.jpg" imgAlt="Aviator" filmName="Aviator" />
-          <FilmCard imgSrc="img/we-need-to-talk-about-kevin.jpg" imgAlt="We need to talk about Kevin" filmName="We need to talk about Kevin" />
-          <FilmCard imgSrc="img/what-we-do-in-the-shadows.jpg" imgAlt="What We Do in the Shadows" filmName="What We Do in the Shadows" />
-          <FilmCard imgSrc="img/revenant.jpg" imgAlt="Revenant" filmName="Revenant" />
-          <FilmCard imgSrc="img/johnny-english.jpg" imgAlt="Johnny English" filmName="Johnny English" />
-          <FilmCard imgSrc="img/shutter-island.jpg" imgAlt="Shutter Island" filmName="Shutter Island" />
-          <FilmCard imgSrc="img/pulp-fiction.jpg" imgAlt="Pulp Fiction" filmName="Pulp Fiction" />
-          <FilmCard imgSrc="img/no-country-for-old-men.jpg" imgAlt="No Country for Old Men" filmName="No Country for Old Men" />
-          <FilmCard imgSrc="img/snatch.jpg" imgAlt="Snatch" filmName="Snatch" />
-          <FilmCard imgSrc="img/moonrise-kingdom.jpg" imgAlt="Moonrise Kingdom" filmName="Moonrise Kingdom" />
-          <FilmCard imgSrc="img/seven-years-in-tibet.jpg" imgAlt="Seven Years in Tibet" filmName="Seven Years in Tibet" />
-          <FilmCard imgSrc="img/midnight-special.jpg" imgAlt="Midnight Special" filmName="Midnight Special" />
-          <FilmCard imgSrc="img/war-of-the-worlds.jpg" imgAlt="War of the Worlds" filmName="War of the Worlds" />
-          <FilmCard imgSrc="img/dardjeeling-limited.jpg" imgAlt="Dardjeeling Limited" filmName="Dardjeeling Limited" />
-          <FilmCard imgSrc="img/orlando.jpg" imgAlt="Orlando" filmName="Orlando" />
-          <FilmCard imgSrc="img/mindhunter.jpg" imgAlt="Mindhunter" filmName="Mindhunter" />
-          <FilmCard imgSrc="img/midnight-special.jpg" imgAlt="Midnight Special" filmName="Midnight Special" />
+          <FilmList films={props.films}/>
         </div>
 
         <div className="catalog__more">

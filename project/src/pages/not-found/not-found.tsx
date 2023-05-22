@@ -1,10 +1,11 @@
 import {Link} from 'react-router-dom';
+import { AppRoute } from '../../route';
 
 const NotFound = (): JSX.Element => (
   <div>
     <h1>404</h1>
     <h1>Page not found</h1>
-    <Link to='/'>Back to main page</Link>
+    <Link to={AppRoute.MainPage}>Back to main page</Link>
   </div>
 );
 
