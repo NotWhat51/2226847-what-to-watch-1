@@ -1,34 +1,17 @@
 import {Link, Navigate, useParams} from 'react-router-dom';
-import FilmType from '../../types/film-type';
 import { AppRoute } from '../../const';
 import ReviewType from '../../types/review-type';
 import { RelatedFilms, Tabs } from '../../components';
+import { useAppSelector } from '../../hooks';
 
 type FilmPageProps = {
-  films: FilmType[];
   reviews: ReviewType[];
-};
-
-const getRatingLevel = (ratingCount: number): string => {
-  let ratingLevel;
-  if (ratingCount < 3) {
-    ratingLevel = 'Bad';
-  } else if (ratingCount < 5) {
-    ratingLevel = 'Normal';
-  } else if (ratingCount < 8) {
-    ratingLevel = 'Good';
-  } else if (ratingCount < 10) {
-    ratingLevel = 'Very good';
-  } else {
-    ratingLevel = 'Awesome';
-  }
-
-  return ratingLevel;
 };
 
 const Film = (props: FilmPageProps): JSX.Element => {
   const id = Number(useParams().id);
-  const film = props.films.find((f) => f.id === id);
+  const films = useAppSelector((state) => state.films);
+  const film = films.find((f) => f.id === id);
 
   if (!film) {
     return (<Navigate to={AppRoute.NotFound}/>);
@@ -99,36 +82,8 @@ const Film = (props: FilmPageProps): JSX.Element => {
                 <img src={film.posterImage} alt={`${film.name} poster`} width="218" height="327"/>
               </div>
 
-              <div className="film-card__desc">
-                <nav className="film-nav film-card__nav">
-                  <ul className="film-nav__list">
-                    <li className="film-nav__item film-nav__item--active">
-                      <a href="#" className="film-nav__link">Overview</a>
-                    </li>
-                    <li className="film-nav__item">
-                      <a href="#" className="film-nav__link">Details</a>
-                    </li>
-                    <li className="film-nav__item">
-                      <a href="#" className="film-nav__link">Reviews</a>
-                    </li>
-                  </ul>
-                </nav>
+              <Tabs film={film} reviews={props.reviews}/>
 
-                <div className="film-rating">
-                  <div className="film-rating__score">{film.rating}</div>
-                  <p className="film-rating__meta">
-                    <span className="film-rating__level">{getRatingLevel(film.rating)}</span>
-                    <span className="film-rating__count">{film.scoresCount} ratings</span>
-                  </p>
-                </div>
-
-                <div className="film-card__text">
-                  <p>{film.description}</p>
-
-                  <p className="film-card__director"><strong>Director: {film.director}</strong></p>
-                  <p className="film-card__starring"><strong>Starring: {film.starring.join(', ')}</strong></p>
-                </div>
-              </div>
             </div>
           </div>
         </section>
@@ -138,7 +93,7 @@ const Film = (props: FilmPageProps): JSX.Element => {
             <h2 className="catalog__title">More like this</h2>
 
             <div className="catalog__films-list">
-              <RelatedFilms films={props.films} currentFilm={film}/>
+              <RelatedFilms films={films} currentFilm={film}/>
             </div>
           </section>
 

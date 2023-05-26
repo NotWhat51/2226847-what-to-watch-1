@@ -12,3 +12,4 @@ export {FilmDetails} from './film-details/film-details';
 export {Tabs} from './tabs/tabs';
 export {GenresList} from './genres-list/genres-list';
 export {ShowMoreButton} from './show-more-button/show-more-button';
+export {Spinner} from './spinner/spinner';
