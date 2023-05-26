@@ -1,6 +1,6 @@
 import {Link, Navigate, useParams} from 'react-router-dom';
 import FilmType from '../../types/film-type';
-import { AppRoute } from '../../route';
+import { AppRoute } from '../../const';
 import ReviewType from '../../types/review-type';
 import { RelatedFilms, Tabs } from '../../components';
 

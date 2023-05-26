@@ -1,6 +1,6 @@
 import {Link, Navigate, useParams} from 'react-router-dom';
 import { ReviewForm } from '../../components';
-import {AppRoute} from '../../route';
+import {AppRoute} from '../../const';
 import FilmType from '../../types/film-type';
 
 type AddReviewProps = {

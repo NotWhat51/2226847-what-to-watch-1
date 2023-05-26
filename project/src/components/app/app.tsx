@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { AppRoute, AuthStatus } from '../../route';
+import { AppRoute, AuthStatus } from '../../const';
 import { PrivateRoute } from '../private-route/private-route';
 import { AddReview, Film, MainPage, MyList, NotFound, Player, SignIn } from '../../pages';
 import FilmType from '../../types/film-type';

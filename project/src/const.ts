@@ -13,3 +13,6 @@ export enum AuthStatus {
     NoAuth = 'NO_AUTH',
     Unknown = 'UNKNOWN'
 }
+
+export const ALL_GENRE = 'All genres';
+export const DEFAULT_GENRE = ALL_GENRE;
