@@ -15,7 +15,7 @@ export const App = (props: AppProps): JSX.Element => (
     <Routes>
       <Route path={AppRoute.AddReview} element={<AddReview films={props.films}/>} />
       <Route path={AppRoute.Film} element={<Film films={props.films} reviews={props.reviews}/>} />
-      <Route path={AppRoute.MainPage} element={<MainPage films={props.films}/>} />
+      <Route path={AppRoute.MainPage} element={<MainPage />} />
       <Route path={AppRoute.MyList} element={
         <PrivateRoute authStatus={AuthStatus.NoAuth}>
           <MyList films={props.films}/>

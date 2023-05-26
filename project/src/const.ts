@@ -16,3 +16,4 @@ export enum AuthStatus {
 
 export const ALL_GENRE = 'All genres';
 export const DEFAULT_GENRE = ALL_GENRE;
+export const FILM_IN_PAGE = 8;

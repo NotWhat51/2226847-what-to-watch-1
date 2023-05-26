@@ -6,7 +6,7 @@ type FilmType = {
     backgroundImage: string;
     backgroundColor: string;
     videoLink: string;
-    previewVideolink: string;
+    previewVideoLink: string;
     description: string;
     rating: number;
     scoresCount: number;

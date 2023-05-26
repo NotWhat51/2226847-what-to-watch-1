@@ -3,7 +3,11 @@ import {useAppDispatch, useAppSelector} from '../../hooks';
 import {ALL_GENRE} from '../../const';
 import {changeGenre, filterFilmsByCurrentGenre} from '../../store/action';
 
-export const GenresList = (): JSX.Element => {
+type GenresListProps = {
+  buttonClickHandler: () => void;
+}
+
+export const GenresList = (props: GenresListProps): JSX.Element => {
   const currentGenre = useAppSelector((state) => state.currentGenre);
   const films = useAppSelector((state) => state.films);
   const genres = [ALL_GENRE, ...Array.from(new Set([ ...films.map((film) => film.genre)].sort()))];
@@ -13,6 +17,7 @@ export const GenresList = (): JSX.Element => {
     event.preventDefault();
     dispatch(changeGenre({newGenre: genre}));
     dispatch(filterFilmsByCurrentGenre());
+    props.buttonClickHandler();
   };
 
   return (
